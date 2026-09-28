@@ -210,6 +210,84 @@ address { font-style: normal; }
 .section-head.light .section-title { color: #fff; }
 .section-desc { margin-top: 16px; color: var(--muted); font-size: 15.5px; }
 
+/* 2026년 9월 중식 달력 */
+.meal-section { background: var(--cream); }
+.meal-heading {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 28px;
+}
+.meal-heading .section-head { margin: 0; text-align: left; }
+.meal-heading .section-title::after { margin: 12px 0 0; }
+.meal-heading .section-desc { margin-top: 12px; }
+.meal-source {
+  flex: none; display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border: 1px solid var(--gold-dark); border-radius: 999px;
+  color: var(--gold-deep); font-size: 13.5px; font-weight: 700;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.meal-source:hover { background: var(--gold-dark); color: #fff; transform: translateY(-1px); }
+.meal-feature {
+  display: grid; grid-template-columns: 210px 1fr; align-items: center; gap: 22px;
+  padding: 22px 26px; margin-bottom: 22px; border-radius: var(--radius);
+  color: #fff; background: #3c382d; box-shadow: var(--shadow);
+}
+.meal-feature-date { display: flex; flex-direction: column; gap: 4px; }
+.meal-feature-label { color: #f0c05a; font-size: 12.5px; font-weight: 700; }
+.meal-feature-date strong { font-size: 22px; letter-spacing: -0.4px; }
+.meal-feature-list {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+}
+.meal-feature-list li {
+  padding: 10px 12px; border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 9px; background: rgba(255,255,255,0.07); font-size: 14px;
+}
+.meal-calendar {
+  overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--line); box-shadow: var(--shadow);
+}
+.meal-weekday-row, .meal-week {
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px;
+}
+.meal-weekday-row { background: var(--soft); }
+.meal-weekday-row span {
+  padding: 11px 8px; text-align: center; color: var(--text); font-size: 13px; font-weight: 800;
+}
+.meal-weekday-row span:nth-child(6) { color: #456c9b; }
+.meal-weekday-row span:nth-child(7) { color: #b34747; }
+.meal-day {
+  min-width: 0; min-height: 142px; padding: 10px 9px;
+  background: #fff; color: var(--text); position: relative;
+}
+.meal-day.is-empty { background: #fbfaf6; }
+.meal-day-button {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 0 0 7px; color: var(--ink); text-align: left;
+}
+.meal-day-number { font-size: 15px; font-weight: 800; line-height: 1.4; }
+.meal-day-tag {
+  padding: 2px 7px; border-radius: 999px; background: var(--soft);
+  color: var(--gold-deep); font-size: 10.5px; font-weight: 800;
+}
+.meal-day-list { display: grid; gap: 3px; color: var(--text); font-size: 11.5px; line-height: 1.45; }
+.meal-day-list li { overflow-wrap: anywhere; }
+.meal-day.is-weekend { background: #faf9f6; }
+.meal-day.is-weekend .meal-day-number { color: var(--muted); }
+.meal-day.is-holiday { background: #fae4e2; color: #9e3434; }
+.meal-day.is-holiday .meal-day-number { color: #a13b3b; }
+.holiday-label { display: block; margin-top: 22px; text-align: center; font-size: 12px; font-weight: 800; }
+.meal-day.is-selected { z-index: 1; box-shadow: inset 0 0 0 2px var(--gold-dark); }
+.meal-day.is-selected .meal-day-tag { background: var(--gold-dark); color: #fff; }
+.meal-day-button:hover .meal-day-number { color: var(--gold-deep); }
+.meal-day-button:focus-visible, .meal-source:focus-visible {
+  outline: 3px solid #6c4a0d; outline-offset: 3px;
+}
+.meal-note { margin-top: 14px; color: var(--muted); font-size: 12.5px; }
+.meal-more {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  color: var(--gold-deep); font-size: 13px; font-weight: 800;
+}
+.meal-more:hover { text-decoration: underline; }
+
 .notice-wrap {
   display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start;
 }
@@ -423,6 +501,10 @@ address { font-style: normal; }
   .life-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-seal { width: 110px; height: 110px; right: 4%; }
+  .meal-day { min-height: 155px; padding: 9px 7px; }
+  .meal-day-list { font-size: 10.5px; }
+  .meal-feature { grid-template-columns: 170px 1fr; gap: 16px; }
+  .meal-feature-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
@@ -457,6 +539,13 @@ address { font-style: normal; }
   .footer-inner { flex-direction: column; }
   .admission-cta { flex-direction: column; }
   .admission-cta p { margin-right: 0; }
+  .meal-heading { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .meal-feature { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
+  .meal-weekday-row { display: none; }
+  .meal-week { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .meal-day { min-height: 128px; padding: 10px; }
+  .meal-day-list { font-size: 11.5px; }
+  .meal-day.is-empty { display: none; }
 }
 
 /* ===== 회원 서비스 & 동아리 신청 ===== */

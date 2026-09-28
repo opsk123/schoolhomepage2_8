@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>부산기계공업고등학교</title>
+  <title>부산기계공업고등학교 | 2026년 9월 중식 식단표</title>
   <meta name="description" content="부산기계공업고등학교 공식 홈페이지 - 미래를 설계하는 기계 기술 인재 양성" />
   <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="apple-touch-icon" href="images/logo.png" />
@@ -83,7 +83,7 @@
               <a href="#life">학교생활</a>
               <ul class="gnb-depth2">
                 <li><a href="#life">학사일정</a></li>
-                <li><a href="#life">급식안내</a></li>
+                 <li><a href="#meal-menu">급식안내</a></li>
                 <li><a href="#life">동아리활동</a></li>
                 <li><a href="#clubs">동아리 신청</a></li>
                 <li><a href="#life">진로상담</a></li>
@@ -153,10 +153,34 @@
           <li><a href="#admission"><span class="q-ico">&#128218;</span>입학안내</a></li>
           <li><a href="#notice"><span class="q-ico">&#128220;</span>공지사항</a></li>
           <li><a href="#departments"><span class="q-ico">&#128736;</span>학과소개</a></li>
-          <li><a href="#life"><span class="q-ico">&#127869;</span>급식안내</a></li>
+           <li><a href="#meal-menu"><span class="q-ico">&#127869;</span>급식안내</a></li>
           <li><a href="#life"><span class="q-ico">&#128197;</span>학사일정</a></li>
           <li><a href="#map"><span class="q-ico">&#128205;</span>오시는 길</a></li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section meal-section" id="meal-menu" aria-labelledby="mealTitle">
+      <div class="container">
+        <div class="meal-heading">
+          <div>
+            <span class="section-eyebrow">SCHOOL LUNCH</span>
+            <h2 class="section-title" id="mealTitle">9월 중식 식단표</h2>
+            <p class="section-desc">날짜를 선택하면 그날의 점심 메뉴를 확인할 수 있습니다.</p>
+          </div>
+          <a class="meal-source" href="9월%20급식표.png" target="_blank" rel="noopener">원본 급식표 보기 <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="meal-feature" aria-live="polite" aria-atomic="true">
+          <div class="meal-feature-date">
+            <span class="meal-feature-label">선택한 날짜 · 중식</span>
+            <strong id="selectedMealDate">9월 29일 (화)</strong>
+          </div>
+          <ul class="meal-feature-list" id="selectedMealList"></ul>
+        </div>
+
+        <div class="meal-calendar" id="mealCalendar" aria-label="2026년 9월 중식 달력"></div>
+        <p class="meal-note">※ 식단은 학교 사정에 따라 변경될 수 있습니다. 빨간색으로 표시된 날짜는 추석 연휴입니다.</p>
       </div>
     </section>
 
@@ -396,16 +420,10 @@
             </ul>
           </article>
           <article class="life-card">
-            <h3>&#127869; 오늘의 급식</h3>
-            <p class="meal-date">9월 16일 (수)</p>
-            <ul class="meal-list">
-              <li>쌀밥</li>
-              <li>닭볶음탕</li>
-              <li>콩나물무침</li>
-              <li>배추김치</li>
-              <li>과일&amp;우유</li>
-            </ul>
-            <p class="meal-kcal">총 786 Kcal</p>
+            <h3>&#127869; 9월 중식</h3>
+            <p class="meal-date" id="lifeMealDate">9월 29일 (화)</p>
+            <ul class="meal-list" id="lifeMealList"></ul>
+            <a href="#meal-menu" class="meal-more">월간 식단표 전체 보기 <span aria-hidden="true">→</span></a>
           </article>
           <article class="life-card">
             <h3>&#127917; 동아리 소개</h3>
@@ -606,6 +624,7 @@
   <script src="js/supabase-config.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/clubs.js"></script>
+  <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
